@@ -8,6 +8,27 @@ const Shop = require("../model/shop");
 const cloudinary = require("cloudinary");
 const ErrorHandler = require("../utils/ErrorHandler");
 
+const { spawn } = require('child_process');
+const path = require('path');
+
+
+router.post('/oil-recommendations', async (req, res) => {
+  const { engineCC, mileage } = req.body;
+
+  const pythonProcess = spawn('python', [path.join(__dirname, 'oil.py'), engineCC, mileage]);
+
+  pythonProcess.stdout.on('data', (data) => {
+      const result = JSON.parse(data);
+      res.json(result);
+  });
+
+  pythonProcess.stderr.on('data', (data) => {
+      console.error(`Error: ${data}`);
+      res.status(500).send('Internal server error');
+  });
+});
+
+
 // create product
 router.post(
   "/create-product",
