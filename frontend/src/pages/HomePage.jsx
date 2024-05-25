@@ -20,7 +20,7 @@ const HomePage = () => {
         {/* <Sponsored /> */}
         <FloatingWhatsApp
           phoneNumber="03146146470"
-          avatar="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+          avatar="https://avatars.githubusercontent.com/u/130662978?v=4"
           accountName="Auto Care"
         />
         <Footer />

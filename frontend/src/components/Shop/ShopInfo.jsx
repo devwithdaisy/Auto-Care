@@ -6,6 +6,7 @@ import styles from "../../styles/styles";
 import Loader from "../Layout/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProductsShop } from "../../redux/actions/product";
+import { logoutSeller } from "../../redux/actions/sellers";
 
 const ShopInfo = ({ isOwner }) => {
   const [data,setData] = useState({});
@@ -28,10 +29,9 @@ const navigate = useNavigate()
   
 
   const logoutHandler = async () => {
-    axios.get(`${server}/shop/logout`,{
-      withCredentials: true,
-    });
-    navigate('/')
+    dispatch(logoutSeller());
+   window.location.reload(true);
+   navigate('/')
 
   
   };
