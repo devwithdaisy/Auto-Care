@@ -107,6 +107,41 @@ router.post(
   })
 );
 
+
+
+// update shop status ---admin
+router.put(
+  "/update-shop-status/:id",
+  isAuthenticated,
+  isAdmin("Admin"),
+  catchAsyncErrors(async (req, res, next) => {
+  
+    try {
+      const shop = await Shop.findById(req.params.id);
+
+      if (!shop) {
+        return next(
+          new ErrorHandler("Shop is not available with this id", 400)
+        );
+      }
+
+      const { newStatus } = req.body;
+
+      // Assuming that 'newStatus' is a valid status value
+      shop.status = newStatus;
+      await shop.save();
+
+      res.status(201).json({
+        success: true,
+        message: "Shop status updated successfully!",
+      });
+    } catch (error) {
+      return next(new ErrorHandler(error.message, 500));
+    }
+  })
+);
+
+
 // login shop
 router.post(
   "/login-shop",

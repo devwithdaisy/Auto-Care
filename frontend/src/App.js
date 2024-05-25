@@ -44,7 +44,8 @@ import {
   AdminDashboardOrders,
   AdminDashboardProducts,
   AdminDashboardEvents,
-  AdminDashboardWithdraw
+  AdminDashboardWithdraw,
+  AdminShopRequest
 } from "./routes/AdminRoutes";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -60,7 +61,6 @@ import axios from "axios";
 import { server } from "./server";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import Oil from "./pages/Oil.jsx";
 
 const App = () => {
   const [stripeApikey, setStripeApiKey] = useState("");
@@ -78,7 +78,7 @@ const App = () => {
   }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter Router>
       {stripeApikey && (
         <Elements stripe={loadStripe(stripeApikey)}>
           <Routes>
@@ -97,8 +97,6 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/sign-up" element={<SignupPage />} />
-        <Route path="/oil-recommendation" element={<Oil />} />
-
         <Route
           path="/activation/:activation_token"
           element={<ActivationPage />}
@@ -116,7 +114,7 @@ const App = () => {
           path="/checkout"
           element={
             <ProtectedRoute>
-              <CheckoutPage />
+              <CheckoutPage /> 
             </ProtectedRoute>
           }
         />
@@ -276,6 +274,14 @@ const App = () => {
           element={
             <ProtectedAdminRoute>
               <AdminDashboardUsers />
+            </ProtectedAdminRoute>
+          }
+        />
+          <Route
+          path="/admin-shop-requests"
+          element={
+            <ProtectedAdminRoute>
+              <AdminShopRequest />
             </ProtectedAdminRoute>
           }
         />

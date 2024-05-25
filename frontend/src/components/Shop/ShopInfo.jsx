@@ -35,7 +35,7 @@ const navigate = useNavigate()
     });
 
     window.location.reload();
-    navigate("/");
+    navigate("/shop-login");
     
   };
 

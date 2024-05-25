@@ -6,7 +6,7 @@ import { CiMoneyBill, CiSettings } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { BsHandbag } from "react-icons/bs";
-import { MdOutlineLocalOffer } from "react-icons/md";
+import { MdOutlineLocalOffer, MdRequestPage } from "react-icons/md";
 import { AiOutlineSetting } from "react-icons/ai";
 
 const AdminSideBar = ({ active }) => {
@@ -25,6 +25,19 @@ const AdminSideBar = ({ active }) => {
             }`}
           >
             Dashboard
+          </h5>
+        </Link>
+      </div>
+      <div className="w-full flex items-center p-4">
+        <Link to="/admin-shop-requests" className="w-full flex items-center">
+          {/* You can replace the icon with an appropriate icon for shop requests */}
+          <MdRequestPage size={30} color={`${active === 9 ? "crimson" : "#555"}`} />
+          <h5
+            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
+              active === 9 ? "text-[crimson]" : "text-[#555]"
+            }`}
+          >
+            Shop Requests
           </h5>
         </Link>
       </div>
