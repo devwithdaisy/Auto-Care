@@ -164,7 +164,7 @@ router.get(
 // log out from shop
 router.get(
   "/logout",
-  catchAsyncError(async (req, res, next) => {
+  catchAsyncErrors(async (req, res, next) => {
     try {
       res.cookie("seller_token", null, {
         expires: new Date(Date.now()),
@@ -179,6 +179,7 @@ router.get(
     }
   })
 );
+
 // get shop info
 router.get(
   "/get-shop-info/:id",
