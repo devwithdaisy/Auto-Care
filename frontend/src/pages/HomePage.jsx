@@ -7,7 +7,7 @@ import FeaturedProduct from "../components/Route/FeaturedProduct/FeaturedProduct
 import Events from "../components/Events/Events";
 import Sponsored from "../components/Route/Sponsored";
 import Footer from "../components/Layout/Footer";
-
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
 const HomePage = () => {
   return (
     <div>
@@ -18,7 +18,13 @@ const HomePage = () => {
         <Events />
         <FeaturedProduct />
         {/* <Sponsored /> */}
+        <FloatingWhatsApp
+          phoneNumber="03146146470"
+          avatar="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+          accountName="Auto Care"
+        />
         <Footer />
+
     </div>
   )
 }

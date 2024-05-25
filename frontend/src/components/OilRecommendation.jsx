@@ -32,7 +32,7 @@ const OilRecommendation = () => {
             <div className={``}>
                 <div className="ml-5">
                     <div className="mb-5">
-                        <h1 className="text-2xl lg:text-4xl text-gray-700 font-bold underline decoration-wavy decoration-rose-500">Engine Oil Recommendation</h1>
+                        <h1 className="text-2xl lg:text-4xl text-gray-700 font-bold ">Engine Oil Recommendation</h1>
                     </div>
   
                     <div className="flex flex-col mt-2">
