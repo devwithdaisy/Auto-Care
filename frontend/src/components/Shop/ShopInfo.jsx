@@ -28,13 +28,17 @@ const navigate = useNavigate()
   }, [])
   
 
-  const logoutHandler = async () => {
-    dispatch(logoutSeller());
-   window.location.reload(true);
-   navigate('/')
 
-  
+  const logoutHandler = async () => {
+    axios.get(`${server}/shop/logout`, {
+      withCredentials: true,
+    });
+
+    window.location.reload();
+    navigate("/");
+    
   };
+
 
   const totalReviewsLength =
     products &&

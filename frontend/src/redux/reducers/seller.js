@@ -2,9 +2,8 @@ import { createReducer } from "@reduxjs/toolkit";
 
 const initialState = {
   isLoading: true,
-  isSeller: false,
-  seller: null,
-  sellers: [],
+  
+
 };
 
 export const sellerReducer = createReducer(initialState, {
@@ -34,18 +33,7 @@ export const sellerReducer = createReducer(initialState, {
     state.isLoading = false;
     state.error = action.payload;
   },
-  logoutSellerRequest: (state) => {
-    state.isLoading = true;
-  },
-  logoutSellerSuccess: (state) => {
-    state.isLoading = false;
-    state.isSeller = false;
-    state.seller = null;
-  },
-  logoutSellerFailed: (state, action) => {
-    state.isLoading = false;
-    state.error = action.payload;
-  },
+
   clearErrors: (state) => {
     state.error = null;
   },

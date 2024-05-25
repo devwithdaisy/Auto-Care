@@ -24,19 +24,4 @@ export const getAllSellers = () => async (dispatch) => {
   }
 };
 
-export const logoutSeller = () => async (dispatch) => {
-  try {
-    dispatch({ type: "logoutSellerRequest" });
 
-    await axios.post(`${server}/shop/logout`, {}, {
-      withCredentials: true,
-    });
-
-    dispatch({ type: "logoutSellerSuccess" });
-  } catch (error) {
-    dispatch({
-      type: "logoutSellerFailed",
-      payload: error.response?.data?.message || "Logout failed",
-    });
-  }
-};
